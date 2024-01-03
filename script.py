@@ -1,6 +1,3 @@
-!pip intall -U discord.py 
-!pip install -U discord.py
-
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
