@@ -1,0 +1,25 @@
+name: Ejecutar script de Python
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Programa la ejecución diaria a medianoche UTC
+
+jobs:
+  run_python_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt  # Si tienes requisitos
+
+      - name: Ejecutar script
+        run: python script.py
