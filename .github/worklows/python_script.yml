@@ -1,25 +1,26 @@
-name: Ejecutar script de Python
+name: Daily Execution
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Programa la ejecución diaria a medianoche UTC
+    - cron: "30 9 * * *"
 
 jobs:
-  run_python_script:
+  execute_code:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Configurar Python
+      
+      - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
-
-      - name: Instalar dependencias
-        run: |
-          pip install -r requirements.txt  # Si tienes requisitos
-
-      - name: Ejecutar script
+          python-version: 3.x
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Execute code
         run: python script.py
+        env:
+          TOKEN: ${{ secrets.TOKEN_BOT }}
