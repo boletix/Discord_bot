@@ -12,10 +12,11 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
       with:
-        python-version: 3.x
+        node-version: 16  # Specify Node.js version 16
+        cache: 'npm'
 
     - name: Install dependencies
       run: pip install -r requirements.txt
