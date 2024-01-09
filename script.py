@@ -3,13 +3,17 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
 
-token_bot = "MTE5MjAzNDQ1MzIyMTAyMzgxNA.GlWvIS.c2UoH_3ed0CRZHUR-_wBSdVwCidoMOuR1-EWW4"
-
 import nest_asyncio
 nest_asyncio.apply()
 
 import discord
 from discord.ext import commands
+
+import os
+try:
+    token_bot = os.environ["TOKEN_BOT"]
+except:
+    token_bot = "MTE5MjAzNDQ1MzIyMTAyMzgxNA.GlWvIS.c2UoH_3ed0CRZHUR-_wBSdVwCidoMOuR1-EWW4"
 
 # Función para enviar un mensaje
 async def enviar_mensaje(channel_id, mensaje, token_bot=token_bot):
